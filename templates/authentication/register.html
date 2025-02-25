@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Data Form</title>
+</head>
+<body>
+    <h2>User Data Form</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+        {% comment %} <button href="{% url 'login' %}">Login</button> {% endcomment %}
+        <a href="{% url 'login' %}">Login</a>
+    </form>
+</body>
+</html>

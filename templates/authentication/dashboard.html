@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Dashboard</title>
+    <style>
+        .profile-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .profile-picture {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+        }
+        .user-info {
+            margin-top: 20px;
+        }
+        .user-type {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-weight: bold;
+        }
+        
+        .logout-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        {% for user in user_info %}
+            <div class="user-type">{{ user.get_user_type_display }}</div>
+            <a href="{% url 'logout' %}" class="logout-button">Logout</a>
+           
+            <img src="{% static user.profile_picture.url %}" alt="Profile Picture" class="profile-picture">
+            <div class="user-info">
+                <h2>{{ user.username }}</h2>
+                <p>{{ user.first_name }} {{ user.last_name }}</p>
+                <p>Email: {{ user.email }}</p>
+                <p>Address: {{ user.Address }}</p>
+                <p>City: {{ user.city }}</p>
+                <p>State: {{ user.state }}</p>
+                <p>Pin Code: {{ user.pin_code }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
