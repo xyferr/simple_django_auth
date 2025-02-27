@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<style>
+    .post-container {
+        text-align: center;
+        padding: 20px;
+    }
+    .post-image {
+        margin: 20px 0;
+    }
+    .post-content {
+        margin-top: 20px;
+    }
+</style>
+{% endblock head %}
+
+{% block body %}
+<div class="container post-container">
+    <h2>{{ post.title }}</h2>
+    <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image" width="200">
+    <div class="post-content">
+        <p>{{ post.content }}</p>
+    </div>
+</div>
+{% endblock body %}

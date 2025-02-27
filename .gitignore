@@ -1,3 +1,5 @@
 myenv
 db.sqlite3
-# mysite/static
+mysite/static
+media
+mysite/media

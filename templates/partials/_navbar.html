@@ -1,0 +1,46 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/_navbar.css' %}">
+
+
+  
+  <div class="mx-auto my-3" style="width: 200px;">
+    
+      <ul class="nav nav-underline">
+
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{% url "patient_blog_posts" %}" id="home">Blogs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="link">My blogs</a>
+        </li>
+        {% comment %} <li class="nav-item">
+          <a class="nav-link" href="{% url "bookmarks" %}" id="bookmarks">BookMarks</a>
+        </li> {% endcomment %}
+        <li class="nav-item">
+          <a class="nav-link " href="{% url "dashboard" %}" id="profile" >Profile</a>
+        </li>
+      </ul>
+    </div>
+    
+ 
+  </div>
+  
+
+  <script>
+    let url = window.location.href;
+    let home = document.getElementById("home");
+    let link = document.getElementById("link");
+    let bookmarks = document.getElementById("bookmarks");
+    let profile = document.getElementById("profile");
+
+    if(url.includes("home")){
+      home.classList.add("active");
+    }else if(url.includes("bookmarks")){
+      bookmarks.classList.add("active");
+    }else if(url.includes("profile")){
+      profile.classList.add("active");
+    }
+    {% comment %} else{
+      link.classList.add("active");
+    } {% endcomment %}
+  </script>
